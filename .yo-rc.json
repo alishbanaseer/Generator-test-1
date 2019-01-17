@@ -1,0 +1,13 @@
+{
+  "generator-name": {
+    "promptValues": {
+      "username": "n"
+    }
+  },
+  "generator-test-1": {
+    "promptValues": {
+      "username": "y",
+      "title": "emily"
+    }
+  }
+}
