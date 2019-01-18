@@ -17,8 +17,8 @@ module.exports = class extends Generator {
     }]);
     this.answers = await this.prompt([{
       type    : 'input',
-      name    : 'title',
-      message : 'Your project title',
+      name    : 'number',
+      message : 'Your project number',
       store   : true
     }]);
 
@@ -63,11 +63,30 @@ module.exports = class extends Generator {
     this.destinationPath('index.js');
     // returns '~/projects/index.js'
   }
-    writing() {
+    writing(number) {
       this.fs.copyTpl(
-        this.templatePath('index.html'),
-        this.destinationPath('./index.html'),
-        { title: this.answers.title } // user answer `title` used
+        this.templatePath('tutorialpage.html'),
+        this.destinationPath('tutorialpages/tutorialpage.html'),
+        { number: this.answers.number } // user answer `number` used
+
+      
+      );
+      this.fs.copyTpl(
+        this.templatePath('tutorialpage.ts'),
+        this.destinationPath('tutorialpages/tutorialpage.ts'),
+        { number: this.answers.number } // user answer `number` used
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('tutorial.module.ts'),
+        this.destinationPath('tutorialpages/tutorial.module.ts'),
+        { number: this.answers.number } // user answer `number` used
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('tutorialpage.less'),
+        this.destinationPath('tutorialpages/tutorialpage.less'),
+        { number: this.answers.number } // user answer `number` used
       );
     }
   
