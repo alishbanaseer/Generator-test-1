@@ -1,7 +1,6 @@
 var Generator = require('yeoman-generator');
 // Given destination root is ~/projects
 
-
 module.exports = class extends Generator {
   async prompting() {
     const answers = await this.prompt([{
@@ -65,27 +64,27 @@ module.exports = class extends Generator {
   }
     writing(number) {
       this.fs.copyTpl(
-        this.templatePath('tutorialpage.html'),
-        this.destinationPath('tutorialpages/tutorialpage.html'),
+        this.templatePath('tutorialpage$number.html.mytemplate'),
+        this.destinationPath('tutorialpages<%= number %>/tutorialpage<%= number %>.html'),
         { number: this.answers.number } // user answer `number` used
 
       
       );
       this.fs.copyTpl(
-        this.templatePath('tutorialpage.ts'),
-        this.destinationPath('tutorialpages/tutorialpage.ts'),
+        this.templatePath('tutorialpage$number.ts.mytemplate'),
+        this.destinationPath('tutorialpages<%= number %>/tutorialpage<%= number %>.ts'),
         { number: this.answers.number } // user answer `number` used
       );
 
       this.fs.copyTpl(
-        this.templatePath('tutorial.module.ts'),
-        this.destinationPath('tutorialpages/tutorial.module.ts'),
+        this.templatePath('tutorial$number.module.ts.mytemplate'),
+        this.destinationPath('tutorialpages<%= number %>/tutorial<%= number %>.module.ts'),
         { number: this.answers.number } // user answer `number` used
       );
 
       this.fs.copyTpl(
-        this.templatePath('tutorialpage.less'),
-        this.destinationPath('tutorialpages/tutorialpage.less'),
+        this.templatePath('tutorialpage$number.less.mytemplate'),
+        this.destinationPath('tutorialpages<%= number %>/tutorialpage<%= number %>.less'),
         { number: this.answers.number } // user answer `number` used
       );
     }
