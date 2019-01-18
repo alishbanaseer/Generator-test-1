@@ -7,7 +7,7 @@
   "generator-test-1": {
     "promptValues": {
       "username": "y",
-      "title": "emily"
+      "number": "4"
     }
   }
 }
